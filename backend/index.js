@@ -1,15 +1,29 @@
-const http = require("http");
+const express = require("express");
 require("dotenv").config();
-// const cors = require('cors');;
+const cors = require("cors");
+const app = express();
+const { connectWithDatabase } = require("./db/connect");
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "application/json" }); // for setting up the response headers
-  res.write(
-    JSON.stringify({
-      name: "Nihil",
-    })
-  );
-  res.end();
+app.use(cors());
+
+const all_products_routes = require("./routes/products");
+app.use("/api/products", all_products_routes);
+
+const PORT = process.env.PORT || 9090;
+
+app.get("/", (req, res) => {
+  res.status(200).send("Hello world!");
 });
 
-server.listen(process.env.PORT);
+const startServer = async () => {
+  try {
+    await connectWithDatabase();
+    app.listen(PORT, () => {
+      console.log("listening at 3001");
+    }); 
+  } catch (err) {
+    console.log("err", err);
+  }
+};
+
+startServer();

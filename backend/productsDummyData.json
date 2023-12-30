@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Ipad pro",
+        "price": 79000,
+        "brandName": "apple",
+        "country": "United States",
+        "rating": 4
+    },
+    {
+        "name": "Black swan",
+        "price": 499,
+        "brandName": "academics",
+        "country": "Lebanese",
+        "rating": 5
+    },
+    {
+        "name": "Think like feynman",
+        "price": 400,
+        "brandName": "academics",
+        "country": "United States",
+        "rating": 5
+    }
+]
