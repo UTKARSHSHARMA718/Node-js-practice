@@ -1,5 +1,5 @@
 const http = require("http");
-const fs = require('fs');
+const fs = require("fs");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 3030;
@@ -27,19 +27,29 @@ http
       return res.end();
     }
 
-    if(url === "/send_name") {
+    if (url === "/send_name") {
       //using buffer
       const data = [];
-      req.on('data',(data_in_form_of_chunk)=>{
+      req.on("data", (data_in_form_of_chunk) => {
         data.push(data_in_form_of_chunk);
-        console.log({data_in_form_of_chunk})
-      })
-      req.on('end',()=>{
+        console.log({ data_in_form_of_chunk });
+      });
+      req.on("end", () => {
         const bodyData = Buffer.concat(data).toString();
         const actualMessage = bodyData.split("=")[1];
-        console.log({actualMessage});
+        console.log({ actualMessage });
         fs.writeFileSync("data.txt", actualMessage); // why Syn?
-      })
+      });
+      res.statusCode = 302;
+      res.setHeader("Location", "/superMan");
+      return res.end();
+    }
+
+    if(url === "/superMan"){
+      console.log("got it")
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "text/plain");
+      res.write("Got it!"); 
       return res.end();
     }
   })
