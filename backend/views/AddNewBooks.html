@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new books</title>
+    <link rel="stylesheet" href="/css/commonStyles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/api/books/">
+                        Home (add-books)s
+                    </a>
+                </li>
+                <li>
+                    <a href="/api/books/view">
+                        View books
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Books on Sale</h1>
+    <form action="/api/books/add-books" method="POST">
+        <input type="text" required placeholder="Please add book name" name="bookName">
+        <input type="number" required placeholder="Please add book price" name="bookPrice">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

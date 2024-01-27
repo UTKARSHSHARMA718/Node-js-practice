@@ -10,9 +10,6 @@ const localDataBase = [];
 // NOTE: .get, .post, .put, .delete and .patch will do exact matching of url not like .use()
 router.get("/get-products", (req, res) => {
   localDataBase.push(req.query);
-  // res.status(200).json({
-  //   data: localDataBase,
-  // });
   res.sendFile(path.join(__dirname, "../", "views", "shop.html"));
 });
 
