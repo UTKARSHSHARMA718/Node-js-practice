@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add products</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/api/store/add-products">Add product</a>
+                </li>
+                <li>
+                    <a href="/api/store/get-products">Shop product</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="/api/store/add-products" method="POST">
+            <input type="text" placeholder="please enter product name" name="product_name">
+            <input type="numeber" placeholder="please enter product price" name="price">
+            <button type="submit">submit</button>
+        </form>
+    </main>
+
+</body>
+
+</html>

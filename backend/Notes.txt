@@ -1,0 +1,5 @@
+process.mainModule (in my case its index.js): This property returns the Module object representing the main module that started the application. The main module is the module that is the entry point of the application.
+
+process.mainModule.filename: This gives you the filename of the main module, which is typically the entry point file of your Node.js application.
+
+path.dirname(): This function, provided by the path module, returns the directory name of a path.
